@@ -1,25 +1,32 @@
 package telran.java52.person.service;
 
-
 import telran.java52.person.dto.AddressDto;
+import telran.java52.person.dto.CityPopulationDto;
 import telran.java52.person.dto.PersonDto;
+import telran.java52.person.model.Child;
+import telran.java52.person.model.Employee;
 
 public interface PersonService {
 	Boolean addPerson(PersonDto personDto);
 	
 	PersonDto findPersonById(Integer id);
 	
-	Iterable<PersonDto> findByCity(String city);
-	
-	Iterable<PersonDto> findByAge(Integer minAge, Integer maxAge);
-	
-	PersonDto updateName(Integer id,String name);
-	
-	Iterable<PersonDto> findByName(String name);
-	
-//	Iterable<CityPopulationDto> getCityPopulation(List<String> cities);
-	
-	PersonDto updateAddress(Integer id, AddressDto address);
+	PersonDto removePerson(Integer id);
 
-	PersonDto deletePerson(Integer id);
+    PersonDto updatePersonName(Integer id, String name);
+
+    PersonDto updatePersonAddress(Integer id, AddressDto addressDto);
+
+    PersonDto[] findPersonsByCity(String city);
+
+    PersonDto[] findPersonsByName(String name);
+
+    PersonDto[] findPersonsBetweenAge(Integer minAge, Integer maxAge);
+
+    Iterable<CityPopulationDto> getCitiesPopulation();
+    
+    Child[] findAllChildren();
+    
+    Employee[] findEmployeesBySalary(Integer minSalary, Integer maxSalary);
+
 }
